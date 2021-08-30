@@ -3,7 +3,6 @@ import interaction
 
 def start_creation():
     source = assemble_source_data.Sources.introduction()
-    print('sdf')
     interaction.initiate_interaction(source)
 
 

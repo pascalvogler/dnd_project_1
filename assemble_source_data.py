@@ -27,3 +27,26 @@ class Sources:
                 return data_filtered_by_playable
             elif file_path == 'data/feats.json':
                 return [feat for feat in raw_data['feat'] if feat.get('source') in self.source_list]
+
+    def get_race_info(self, index=None, name=None):
+        print("---")
+        print(f"---Information about {self.races[index].get('name', 'no indication')}s---")
+        print("---")
+        print("GENERAL INFORMATION / STATS")
+        print("---")
+        print(f"Speed: {self.races[index].get('speed','no indication')} -")
+        print(f"Ability modifiers: {self.races[index].get('ability', 'none')}")
+        print(f"Skill proficiencies: {self.races[index].get('skillProficiencies', 'none')}")
+        print(f"Language proficiencies: {self.races[index].get('languageProficiencies', 'none')}")
+        print(f"Dark vision: {self.races[index].get('darkvision', 'none')}")
+        print("---")
+        print("DETAILS:")
+        print("---")
+        print(f"Size: {self.races[index].get('size', 'none')}")
+        for entry in self.races[index].get('entries', []):
+            print(f"{entry['name']}: {entry['entries']}")
+        print("---")
+        print("SUB-RACES:")
+        print("---")
+        for subrace in self.races[index].get('subraces', [{'name':'There are no subraces'}]):
+            print(f"{subrace['name']}")
